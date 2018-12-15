@@ -137,6 +137,16 @@ var TimeRangeSlider = function (_Component) {
       });
     }
   }, {
+    key: 'onChangeStart',
+    value: function onChangeStart(value) {
+      var start = this.minuteToTime(value.min),
+          end = this.minuteToTime(value.max);
+      this.props.onChangeStart({
+        start: start,
+        end: end
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props$value = this.props.value,
@@ -146,13 +156,15 @@ var TimeRangeSlider = function (_Component) {
           max = this.timeToMinute(end);
 
       return _react2.default.createElement(_reactInputRange2.default, {
-        draggableTrack: true,
+        disabled: this.props.disabled,
+        draggableTrack: this.props.draggableTrack,
         maxValue: this.timeToMinute(this.props.maxValue),
         minValue: this.timeToMinute(this.props.minValue),
-        step: 15,
-        value: { min: min, max: max },
+        onChangeStart: this.onChangeStart.bind(this),
         onChange: this.onChange.bind(this),
-        onChangeComplete: this.onChangeComplete.bind(this) });
+        onChangeComplete: this.onChangeComplete.bind(this),
+        step: 15,
+        value: { min: min, max: max } });
     }
   }]);
 
@@ -160,13 +172,19 @@ var TimeRangeSlider = function (_Component) {
 }(_react.Component);
 
 TimeRangeSlider.defaultProps = {
-  minValue: "00:00",
-  maxValue: "23:59",
-  step: 15,
+  disabled: false,
+  draggableTrack: false,
   format: 24,
-  value: { start: "00:00", end: "23:59" },
+  maxValue: "23:59",
+  minValue: "00:00",
   onChange: function onChange() {},
-  onChangeComplete: function onChangeComplete() {}
+  onChangeComplete: function onChangeComplete() {},
+  onChangeStart: function onChangeStart() {},
+  step: 15,
+  value: {
+    start: "00:00",
+    end: "23:59"
+  }
 };
 
 exports.default = TimeRangeSlider;

@@ -1,7 +1,7 @@
 /***  examples/src/index.js ***/
 import React from 'react';
 import { render} from 'react-dom';
-import TimeRangeSlider from '../../src';
+import TimeRangeSlider from '../src';
 class App extends React.Component{
 	constructor(props) {
 	    super(props);

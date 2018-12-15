@@ -2,11 +2,15 @@
 const path = require('path'), webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "examples/src/index.html"),
+    template: path.join(__dirname, "examples/index.html"),
     filename: "./index.html"
 });
 module.exports = {
-    entry: path.join(__dirname, "examples/src/index.js"),
+    entry: path.join(__dirname, "examples/index.js"),
+    output: {
+        path: path.resolve(__dirname, 'examples'),
+        filename: 'bundle.js'
+    },
     module: {
         rules: [
             {
@@ -22,8 +26,9 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('production') // production development
+          'process.env.NODE_ENV': JSON.stringify('development') // production development
         }),
+        new webpack.optimize.UglifyJsPlugin(),
         htmlWebpackPlugin
     ],
     resolve: {
