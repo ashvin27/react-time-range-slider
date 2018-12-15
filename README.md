@@ -2,6 +2,9 @@
 
 react-time-range-slider is a React component allowing users to integrate time range slider. It can accept start and end time. It also allow to define time format default 24 hour time format
 
+## Demo
+A running demo is available [here](https://ashvin27.github.io/react-time-range-slider/examples/)
+
 ## Installation
 
 With [npm](https://npmjs.org/) installed, run

@@ -9,8 +9,21 @@
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
-  "author": "Ashvin Patel",
-  "license": "ISC",
+  "author": {
+    "name": "Ashvin Patel",
+    "email": "patelash212@gmail.com",
+    "url": "https://github.com/ashvin27"
+  },
+  "license": "MIT",
+  "homepage": "https://ashvin27.github.io/react-time-range-slider/",
+  "bugs": {
+    "url": "https://github.com/ashvin27/react-time-range-slider/issues",
+    "email": "patelash212@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashvin27/react-time-range-slider.git"
+  },
   "peerDependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
@@ -41,6 +54,8 @@
     "slider",
     "time",
     "form",
-    "input"
+    "input",
+    "react-time-range-slider",
+    "timepicker"
   ]
 }
