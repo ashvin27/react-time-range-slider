@@ -128,7 +128,7 @@ class TimeRangeSlider extends Component {
         onChangeStart={this.onChangeStart.bind(this)}
         onChange={this.onChange.bind(this)}
         onChangeComplete={this.onChangeComplete.bind(this)}
-        step={15}
+        step={this.props.step}
         value={{min: min, max: max}}/>);
   }
 }
