@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,15 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactInputRange = require('react-input-range');
+var _reactInputRange = require("react-input-range");
 
 var _reactInputRange2 = _interopRequireDefault(_reactInputRange);
-
-require('./styles.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,22 +36,22 @@ var TimeRangeSlider = function (_Component) {
   }
 
   _createClass(TimeRangeSlider, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {}
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {}
   }, {
-    key: 'minuteToTime',
+    key: "minuteToTime",
     value: function minuteToTime(value) {
       value = value > 1439 ? 1439 : value;
       var hours = Math.floor(value / 60),
           minutes = value - hours * 60,
           ampm = null;
 
-      if (hours.length == 1) hours = '0' + hours;
-      if (minutes.length == 1) minutes = '0' + minutes;
-      if (minutes == 0) minutes = '00';
+      if (hours.length == 1) hours = "0" + hours;
+      if (minutes.length == 1) minutes = "0" + minutes;
+      if (minutes == 0) minutes = "00";
       if (this.props.format == 12) {
         ampm = "AM";
         if (hours >= 12) {
@@ -75,7 +73,7 @@ var TimeRangeSlider = function (_Component) {
       return { hours: hours, minutes: minutes, am_pm: ampm };
     }
   }, {
-    key: 'timeToMinute',
+    key: "timeToMinute",
     value: function timeToMinute(time) {
       var rMinutes = 1439;
       if (this.props.format == 24) {
@@ -111,7 +109,7 @@ var TimeRangeSlider = function (_Component) {
       return rMinutes > 1439 ? 1439 : rMinutes;
     }
   }, {
-    key: 'onChange',
+    key: "onChange",
     value: function onChange(value) {
       var start = this.minuteToTime(value.min);
       var end = this.minuteToTime(value.max);
@@ -127,7 +125,7 @@ var TimeRangeSlider = function (_Component) {
       });
     }
   }, {
-    key: 'onChangeComplete',
+    key: "onChangeComplete",
     value: function onChangeComplete(value) {
       var start = this.minuteToTime(value.min),
           end = this.minuteToTime(value.max);
@@ -137,7 +135,7 @@ var TimeRangeSlider = function (_Component) {
       });
     }
   }, {
-    key: 'onChangeStart',
+    key: "onChangeStart",
     value: function onChangeStart(value) {
       var start = this.minuteToTime(value.min),
           end = this.minuteToTime(value.max);
@@ -147,7 +145,7 @@ var TimeRangeSlider = function (_Component) {
       });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _props$value = this.props.value,
           start = _props$value.start,
@@ -163,8 +161,10 @@ var TimeRangeSlider = function (_Component) {
         onChangeStart: this.onChangeStart.bind(this),
         onChange: this.onChange.bind(this),
         onChangeComplete: this.onChangeComplete.bind(this),
-        step: 15,
-        value: { min: min, max: max } });
+        formatLabel: this.props.formatLabel,
+        step: this.props.step,
+        value: { min: min, max: max }
+      });
     }
   }]);
 
@@ -180,6 +180,7 @@ TimeRangeSlider.defaultProps = {
   onChange: function onChange() {},
   onChangeComplete: function onChangeComplete() {},
   onChangeStart: function onChangeStart() {},
+  formatLabel: function formatLabel() {},
   step: 15,
   value: {
     start: "00:00",

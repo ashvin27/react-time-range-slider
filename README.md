@@ -22,6 +22,8 @@ var TimeRangeSlider = require('react-time-range-slider')
 import React from 'react';
 import { render} from 'react-dom';
 import TimeRangeSlider from 'react-time-range-slider';
+import 'react-time-range-slider/dist/styles.css';
+
 class App extends React.Component{
     constructor(props) {
         super(props);
@@ -63,7 +65,8 @@ class App extends React.Component{
                 onChangeComplete={this.changeCompleteHandler}
                 onChange={this.timeChangeHandler}
                 step={15}
-                value={this.state.value}/>
+                value={this.state.value}
+                formatLabel={(value) => {`${value}`}}/>
         </div>);
     }
 };
@@ -107,6 +110,9 @@ The amount of time, in minutes, increment/decrement when time range change.
 
 #### value: Range
 Set the current value for your component
+
+#### formatLabel: Function(Value, Type): void
+By default, value labels are displayed as plain numbers. If you want to change the display, you can do so by passing in a function. The function can return something different, i.e.: append a unit, reduce the precision of a number.
 
 ## Defaults
 * disabled: `false`
