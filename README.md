@@ -16,12 +16,23 @@ npm install react-time-range-slider
 ## Usage
 ```js
 var TimeRangeSlider = require('react-time-range-slider')
+require('react-time-range-slider/dist/styles.css')
+```
+or 
+
+```js
+import TimeRangeSlider from 'react-time-range-slider';
+import 'react-time-range-slider/dist/styles.css';
+
 ```
 
 ```js
 import React from 'react';
 import { render} from 'react-dom';
+
 import TimeRangeSlider from 'react-time-range-slider';
+import 'react-time-range-slider/dist/styles.css';
+
 class App extends React.Component{
     constructor(props) {
         super(props);

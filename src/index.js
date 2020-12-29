@@ -1,7 +1,6 @@
 /*** src/index.js ***/
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
-import './styles.css';
 
 class TimeRangeSlider extends Component {
 
@@ -144,7 +143,7 @@ TimeRangeSlider.defaultProps = {
   onChangeStart: () => {},
   step: 15,
   value: {
-    start: "00:00", 
+    start: "00:00",
     end: "23:59"
   }
 }
