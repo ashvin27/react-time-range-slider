@@ -14,8 +14,6 @@ var _reactInputRange = require('react-input-range');
 
 var _reactInputRange2 = _interopRequireDefault(_reactInputRange);
 
-require('./styles.css');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -163,7 +161,7 @@ var TimeRangeSlider = function (_Component) {
         onChangeStart: this.onChangeStart.bind(this),
         onChange: this.onChange.bind(this),
         onChangeComplete: this.onChangeComplete.bind(this),
-        step: 15,
+        step: this.props.step,
         value: { min: min, max: max } });
     }
   }]);
